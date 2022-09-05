@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="keywords" content="htmlcss bootstrap, multi level menu, submenu, treeview nav menu examples" />
+<meta name="description" content="Bootstrap 5 navbar multilevel treeview examples for any type of project, Bootstrap 5" />  
+
+<title>Mwalimu Central</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<!-- Favicon Attribution: <a href="https://www.vecteezy.com/free-vector/arrow">Arrow Vectors by Vecteezy</a> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
+
+<style type="text/css">
+
+/* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+
+	.dropdown-menu li{
+		position: relative;
+	}
+	.dropdown-menu .submenu{ 
+		display: none;
+		position: absolute;
+		left:100%; top:-7px;
+	}
+	.dropdown-menu .submenu-left{ 
+		right:100%; left:auto;
+	}
+
+	.dropdown-menu > li:hover{ background-color: #f1f1f1 }
+	.dropdown-menu > li:hover > .submenu{
+		display: block;
+	}
+}	
+/* ============ desktop view .end// ============ */
+
+/* ============ small devices ============ */
+@media (max-width: 991px) {
+
+.dropdown-menu .dropdown-menu{
+		margin-left:0.7rem; margin-right:0.7rem; margin-bottom: .5rem;
+}
+
+}	
+/* ============ small devices .end// ============ */
+
+</style>
+
+
+<script type="text/javascript">
+//	window.addEventListener("resize", function() {
+//		"use strict"; window.location.reload(); 
+//	});
+
+
+	document.addEventListener("DOMContentLoaded", function(){
+        
+
+    	/////// Prevent closing from click inside dropdown
+		document.querySelectorAll('.dropdown-menu').forEach(function(element){
+			element.addEventListener('click', function (e) {
+			  e.stopPropagation();
+			});
+		})
+
+
+
+		// make it as accordion for smaller screens
+		if (window.innerWidth < 992) {
+
+			// close all inner dropdowns when parent is closed
+			document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown){
+				everydropdown.addEventListener('hidden.bs.dropdown', function () {
+					// after dropdown is hidden, then find all submenus
+					  this.querySelectorAll('.submenu').forEach(function(everysubmenu){
+					  	// hide every submenu as well
+					  	everysubmenu.style.display = 'none';
+					  });
+				})
+			});
+			
+			document.querySelectorAll('.dropdown-menu a').forEach(function(element){
+				element.addEventListener('click', function (e) {
+		
+				  	let nextEl = this.nextElementSibling;
+				  	if(nextEl && nextEl.classList.contains('submenu')) {	
+				  		// prevent opening link if link needs to open dropdown
+				  		e.preventDefault();
+				  		console.log(nextEl);
+				  		if(nextEl.style.display == 'block'){
+				  			nextEl.style.display = 'none';
+				  		} else {
+				  			nextEl.style.display = 'block';
+				  		}
+
+				  	}
+				});
+			})
+		}
+		// end if innerWidth
+
+	}); 
+	// DOMContentLoaded  end
+</script>
+
+</head>
+<body>
+
+<header class="section-header py-4">
+<div class="container">
+	<h2>Mwalimu Central</h2> 
+</div>
+</header> <!-- section-header.// -->
+
+
+
+<div class="container">
+
+<!-- ============= COMPONENT ============== -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+ <div class="container-fluid">
+ 	 <a class="navbar-brand" href="#">Brand</a>
+      
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="main_nav">
+	
+
+	<ul class="navbar-nav">
+		<li class="nav-item active"> <a class="nav-link" href="#">Home </a> </li>
+		<!-- <li class="nav-item"><a class="nav-link" href="#"> About </a></li> -->
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Curriculum Designs</a>
+		    <ul class="dropdown-menu">
+			  <li><a class="dropdown-item" href="#">Pri-Primary One &raquo;</a>
+			  <ul class="submenu dropdown-menu">
+				<li><a class="dropdown-item" href="#">Language Activities</a></li>
+				<li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+				<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+				<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+				<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+				<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				<li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+			 </ul>
+			  <li><a class="dropdown-item" href="#">Pre-Primary Two &raquo; </a>
+			  	 <ul class="submenu dropdown-menu">
+					<li><a class="dropdown-item" href="#">Language Activities</a></li>
+					<li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>			    
+				 </ul>
+			  </li>			  
+		    </ul>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Schemes of Work</a>
+		    <ul class="dropdown-menu">
+			  	<li><a class="dropdown-item" href="#">Pre-Primary One &raquo; </a>
+					<ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+					</ul>			
+				</li>
+			
+
+			  <li><a class="dropdown-item" href="#">Pre-Primary Two &raquo; </a>
+			  	 <ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+				 </ul>
+			  </li>		
+			</ul>
+		</li>
+
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Lesson Plans</a>
+		    <ul class="dropdown-menu">
+			  	<li><a class="dropdown-item" href="#">Pre-Primary One &raquo; </a>
+					<ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+					</ul>			
+				</li>
+			
+
+			  <li><a class="dropdown-item" href="#">Pre-Primary Two &raquo; </a>
+			  	 <ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+				 </ul>
+			  </li>		
+			</ul>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Rubrics</a>
+		    <ul class="dropdown-menu">
+			  	<li><a class="dropdown-item" href="#">Pre-Primary One &raquo; </a>
+					<ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+					</ul>			
+				</li>
+			
+
+			  <li><a class="dropdown-item" href="#">Pre-Primary Two &raquo; </a>
+			  	 <ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+				 </ul>
+			  </li>		
+			</ul>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Assessments</a>
+		    <ul class="dropdown-menu">
+			  	<li><a class="dropdown-item" href="#">Pre-Primary One &raquo; </a>
+					<ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+					</ul>			
+				</li>
+			
+
+			  <li><a class="dropdown-item" href="#">Pre-Primary Two &raquo; </a>
+			  	 <ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+				 </ul>
+			  </li>		
+			</ul>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Record of Work</a>
+		    <ul class="dropdown-menu">
+			  	<li><a class="dropdown-item" href="#">Pre-Primary One &raquo; </a>
+					<ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+					</ul>			
+				</li>
+			
+
+			  <li><a class="dropdown-item" href="#">Pre-Primary Two &raquo; </a>
+			  	 <ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+				 </ul>
+			  </li>		
+			</ul>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Appraisal</a>
+		    <ul class="dropdown-menu">
+			  	<li><a class="dropdown-item" href="#">Pre-Primary One &raquo; </a>
+					<ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+					</ul>			
+				</li>
+			
+
+			  <li><a class="dropdown-item" href="#">Pre-Primary Two &raquo; </a>
+			  	 <ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+				 </ul>
+			  </li>		
+			</ul>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Resources</a>
+		    <ul class="dropdown-menu">
+			  	<li><a class="dropdown-item" href="#">Pre-Primary One &raquo; </a>
+					<ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+					</ul>			
+				</li>
+			
+
+			  <li><a class="dropdown-item" href="#">Pre-Primary Two &raquo; </a>
+			  	 <ul class="submenu dropdown-menu">
+				    <li><a class="dropdown-item" href="#">Language Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Mathematics Activities</a></li>
+					<li><a class="dropdown-item" href="#">Psychomotor & Creative Activities</a></li>
+					<li><a class="dropdown-item" href="#">Environmental Activities</a></li>
+					<li><a class="dropdown-item" href="#">Christian Religious Education Activities</a></li>
+					<li><a class="dropdown-item" href="#">Islamic Religious Education Activities</a></li>
+				    <li><a class="dropdown-item" href="#">Hindu Religious Education Activities</a></li>
+				 </ul>
+			  </li>		
+			</ul>
+		</li>
+
+
+  </div> <!-- navbar-collapse.// -->
+ </div> <!-- container-fluid.// -->
+</nav>
+
+<!-- ============= COMPONENT END// ============== -->
+
+<section class="section-content py-5">
+	
+		<h4>Welcome...<br>To Mwalimu Central!</h4>
+        <p>Who is Mwalimu Central?</p>
+       
+		<p class="text-muted">Mwalimu Central's goal is to help you, as a teacher, organise your professional documents, reports and resources to help you become a more efficient and effective teacher! You will be able to find your curriculum designs, templates to the schemes of work, lessons plans, rubrics, and records of work. You can choose to autofil them with the information here or you download and fill them offline. You will also have an opportunity to download and edit them at will. You can also share the documents you have created with your friends and colleagues!
+            <br> 
+            <br>
+            Time to digitise your teaching and learning experience! 
+            <br>
+            <br>
+            Select the document you would like to work on from the navigation menu above, select your class and learning area and begin! 
+            <br>
+            <br>
+            <p>So, who really is Mwalimu Central? <h5>Your partner in teaching and learning!</h5></p>
+        </p>
+
+		
+</section>
+
+</div><!-- container //  -->
+
+</body>
+</html>
